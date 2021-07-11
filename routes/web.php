@@ -20,6 +20,10 @@ Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index'
     ->name('login');
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'store']);
 
+//User Post
+Route::get('/user/{user:username}/posts', [\App\Http\Controllers\UserPostController::class, 'index'])
+    ->name('user.post');
+
 //Logout
 Route::post('logout', [\App\Http\Controllers\Auth\LogoutController::class, 'logout'])
     ->name('logout');

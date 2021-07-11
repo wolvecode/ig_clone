@@ -29,6 +29,9 @@ class PostController extends Controller
     }
     public function delete(Post $post)
     {
+        //Authorise post user
+        $this->authorize('delete', $post);
+
         $post->delete();
         return back();
     }

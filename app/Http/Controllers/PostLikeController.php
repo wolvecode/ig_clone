@@ -15,18 +15,16 @@ class PostLikeController extends Controller
     public function like(Request $request, Post $post)
     {
 
-        if ($post->likedBy($request->user()))
-        {
-            return response(null, 409);
-        }
         $post->likes()->create([
-            'user_id'=>$request->user()->id,
+            'user_id' => $request->user()->id,
         ]);
         return back();
     }
+
     public function unlike(Request $request, Post $post)
     {
         $request->user()->likes()->where('post_id', $post->id)->delete();
+
         return back();
     }
 
