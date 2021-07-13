@@ -36,6 +36,8 @@ Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 
 //Posts
 Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index'])
     ->name('posts');
+Route::get('/posts/{post}', [\App\Http\Controllers\PostController::class, 'show'])
+    ->name('post.show');
 Route::post('/posts', [\App\Http\Controllers\PostController::class, 'post']);
 Route::delete('/posts/{post}', [\App\Http\Controllers\PostController::class, 'delete'])
     ->name('post.delete');

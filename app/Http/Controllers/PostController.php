@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth'])->only('post, delete');
+    }
 
     public function index()
     {
@@ -14,6 +18,14 @@ class PostController extends Controller
         return view('post.index', [
             'posts' => $posts
         ]);
+    }
+
+    public function show(Post $post)
+    {
+        return view('post.show', [
+            'post' => $post
+    ]);
+
     }
     public function post(Request $request)
     {
