@@ -24,9 +24,10 @@ class PostController extends Controller
     {
         return view('post.show', [
             'post' => $post
-    ]);
+        ]);
 
     }
+
     public function post(Request $request)
     {
        $this->validate($request, [
@@ -39,6 +40,7 @@ class PostController extends Controller
 
        return back();
     }
+    
     public function delete(Post $post)
     {
         //Authorise post user
